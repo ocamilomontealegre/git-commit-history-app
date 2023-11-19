@@ -1,0 +1,24 @@
+{
+  "name": "git-commit-history-app",
+  "version": "1.0.0",
+  "description": "Node app for showing the git commit history",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ocamilomontealegre/git-commit-history-app.git"
+  },
+  "keywords": [
+    "Git",
+    "Commit",
+    "History"
+  ],
+  "author": "@ocamilomontealegre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ocamilomontealegre/git-commit-history-app/issues"
+  },
+  "homepage": "https://github.com/ocamilomontealegre/git-commit-history-app#readme"
+}
