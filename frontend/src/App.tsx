@@ -1,4 +1,3 @@
-// App.tsx
 import { useState } from 'react';
 import axios from 'axios';
 
@@ -12,19 +11,18 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const fetchCommits = () => {
+  const fetchCommits = async () => {
     setLoading(true);
-    axios.get<Commit[]>('http://localhost:3000/commits')
-      .then((response) => {
-        setCommits(response.data);
-        setError(null);
-      })
-      .catch((error) => {
-        setError('Error fetching data: ' + error.message);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+
+    try {
+      const response = await axios.get<Commit[]>('http://localhost:3000/commits');
+      setCommits(response.data);
+      setError(null);
+    } catch (error: unknown) {
+      setError('Error fetching data: ' + (error as Error).message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
