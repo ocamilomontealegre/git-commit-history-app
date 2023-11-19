@@ -4,6 +4,7 @@ import axios from 'axios';
 interface Commit {
   sha: string;
   message: string;
+  author: string;
 }
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
     try {
       const response = await axios.get<Commit[]>('http://localhost:3000/commits');
       setCommits(response.data);
+      console.log("🚀 ~ file: App.tsx:23 ~ fetchCommits ~ response.data:", response.data)
       setError(null);
     } catch (error: unknown) {
       setError('Error fetching data: ' + (error as Error).message);
@@ -33,10 +35,12 @@ function App() {
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {!loading && !error && (
         <ul>
-          {commits.map((commit) => (
-            <li key={commit.sha}>{commit.message}</li>
-          ))}
-        </ul>
+        {commits.map((commit) => (
+          <li key={commit.sha}>
+            <strong>{commit.sha}</strong>: {commit.message}
+          </li>
+        ))}
+      </ul>
       )}
     </div>
   );
