@@ -18,7 +18,6 @@ function App() {
     try {
       const response = await axios.get<Commit[]>('http://localhost:3000/commits');
       setCommits(response.data);
-      console.log("🚀 ~ file: App.tsx:23 ~ fetchCommits ~ response.data:", response.data)
       setError(null);
     } catch (error: unknown) {
       setError('Error fetching data: ' + (error as Error).message);
