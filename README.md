@@ -1,6 +1,3 @@
-# git-commit-history-app
-Node app showing the git commit history
-
 # Git Commit History App
 
 This app shows you the git commit history app of the project itself
