@@ -30,7 +30,7 @@ function App() {
   return (
     <div className="container">
       <h1>Git Commit History App</h1>
-      <button onClick={fetchCommits}>Fetch Commits</button>
+      <button onClick={fetchCommits}>Get Commits</button>
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {!loading && !error && (
